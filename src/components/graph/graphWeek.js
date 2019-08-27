@@ -5,7 +5,7 @@ import {
 
 import axios from 'axios';
 
-export default class GraphDay extends PureComponent {
+export default class GraphWeek extends PureComponent {
   constructor() {
     super()
     this.state = {
@@ -25,7 +25,7 @@ export default class GraphDay extends PureComponent {
 
 
     return new Promise((resolve, reject) => {
-      axios.get('http://10.117.189.181:9093/bank/analysis/day').then((response) => {
+      axios.get('http://10.117.189.181:9093/bank/analysis/week').then((response) => {
         resolve(response);
         console.log(response);
       }).catch((error) => {

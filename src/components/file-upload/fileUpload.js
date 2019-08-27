@@ -44,10 +44,10 @@ class FileUpload extends React.Component {
         // console.log(this.state.file.name);
         var data = new FormData()
         data.append('file', this.state.file)
-        axios.post('http://10.117.189.75:9093/bank/products', data).then((response) => {
+        axios.post('http://10.117.189.181:9093/bank/products', data).then((response) => {
 
             console.log(response.data);
-            this.props.history.push('/home');
+            // this.props.history.push('/home');
         }).catch((error) => {
         });
     }

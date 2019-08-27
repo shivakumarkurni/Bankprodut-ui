@@ -32,8 +32,11 @@ import FileUpload from '../src/components/file-upload/fileUpload'
 import ListOfProducts from '../src/components/listOfBankProducts/listOfProducts'
 import BuyProduct from '../src/components/buyProduct/buyProduct'
 import ProductGroup from '../src/components/accordion/accordion'
-import TrendindStock from '../src/components/graph/graph'
-
+import GraphDay from '../src/components/graph/graph'
+import GraphWeek from '../src/components/graph/graphWeek'
+import GraphMonth from '../src/components/graph/graphMonth'
+import Analysis from '../src/components/analysis/analysis'
+import SuccessProductPage from '../src/components/successProductPage/successProduct'
 
 class App extends Component {
   render() {
@@ -78,8 +81,11 @@ class App extends Component {
                     <Route exact path="/accordion" component={ListOfProducts} />
                     <Route exact path="/buyProduct" component={BuyProduct} />
 
-                    <Route exact path="/productList" component={ProductGroup} />
-                    <Route exact path="/graphday" component={TrendindStock} />
+                    <Route exact path="/analysis" component={Analysis} />
+                    <Route exact path="/graphday" component={GraphDay} />
+                    <Route exact path="/graphweek" component={GraphWeek} />
+                    <Route exact path="/graphmonth" component={GraphMonth} />
+                    <route exact path="/successPage" component={SuccessProductPage} />
 
 
 

@@ -10,8 +10,11 @@ class BuyProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            categoryName:localStorage.getItem("categoryName"),
+            productId: localStorage.getItem("productId"),
+            productName: localStorage.getItem("productName"),
             formData: {
+                productId: localStorage.getItem("productId"),
+
                 name: '',
                 gender: '',
                 dob: '',
@@ -30,37 +33,36 @@ class BuyProduct extends Component {
         console.log(this.state.formData);
     }
 
-    register = () => {
+    buyHandler = () => {
         const { formData } = this.state;
-        const { notification } = this.state;
-        var global = this;
-        console.log(formData);
-        axios.post('http://10.117.189.181:9093/bank/bank/buyProduct', formData).then(function (response) {
-            if (response.data.statusCode === 401) {
-                alert(response.data.message)
-            }
-            else {
-                
-            }
-        }).catch(function (err) {
+        console.log(this.state);     
+        
+        axios.post('http://10.117.189.181:9093/bank/bank/buyProduct', formData).then( (response) =>{
+            // console.log(response, formData);
+            this.props.history.push('/successPage')
+        
+        }).catch((err)=> {
+            alert("Log in unsuccessful");
             console.log(err);
         })
+        
     }
 
+    
     render() {
         return (
             <div className="row container">
-                <div><b>PRODUCT NAME:</b>{this.state.categoryName}</div> 
+                <div><b>PRODUCT NAME:</b>{this.state.productName}</div>
                 <div className="col-md-1"></div>
                 <div className="box col-md-4">
-                   
+
                     <div className="sign">
                         <div className="form-group">
                             <label>Name</label>
                             <input type="text" className="form-control" placeholder="Enter name" name="name" required onChange={this.handleChange} />
                         </div>
 
-                        
+
 
                         <div className="form-group">
                             <label>DOB</label>
@@ -74,7 +76,7 @@ class BuyProduct extends Component {
 
 
 
-                      
+
 
 
                         <div className="form-group">
@@ -93,13 +95,13 @@ class BuyProduct extends Component {
                         </div>
 
 
-                        
+
 
 
                         <label></label><br />
-                        <button type="button" className="btn btn-info reg-btn" onClick={this.register}>Ok</button>
+                        <button type="button" className="btn btn-info reg-btn" onClick={this.buyHandler}>Ok</button>
                     </div>
-                  
+
                 </div>
             </div>
         )

@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 
 import axios from 'axios';
 
@@ -7,54 +7,56 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-class ProductGroup extends Component{
-    constructor(props){
+class ProductGroup extends Component {
+    constructor(props) {
         super(props);
-        this.state={
-            list:[],
-            list2:[]
+        this.state = {
+            list: [],
+            list2: []
         }
     }
 
-    componentDidMount(){
-        const{list}=this.state;
-        var global=this;
-        axios.get('http://10.117.189.181:9093/bank/bank/categories').then((response)=>{
-            console.log(response.data);
-            localStorage.setItem("categoryId",response.data.categoryId);
-        console.log(response.data.categoryId);
-            global.setState({list:response.data});
-        }).catch((error)=>{
+    componentDidMount() {
+        const { list } = this.state;
+        var global = this;
+        axios.get('http://10.117.189.181:9093/bank/bank/categories').then((response) => {
+            debugger
+            console.log("________________________", response.data);
+
+            localStorage.setItem("categoryId", response.data.categoryId);
+            console.log(response.data.categoryId);
+            global.setState({ list: response.data });
+        }).catch((error) => {
             console.log(error);
         })
     }
 
-    handleClick = (e,item)=> {
-        const{list2}=this.state;
-        var categoryId=localStorage.getItem("categoryId");
+    handleClick = (e, item) => {
+        const { list2 } = this.state;
+        var categoryId = localStorage.getItem("categoryId");
         console.log(categoryId);
-        axios.get('http://10.117.189.181:9093/bank/products/'+item.categoryId).then((response)=>{
-           console.log(response.data);
-           this.setState({list2:response.data});
-        }).catch((err)=>{
+        axios.get('http://10.117.189.181:9093/bank/products/' + item.categoryId).then((response) => {
+            console.log(response.data);
+            this.setState({ list2: response.data });
+        }).catch((err) => {
             console.log(err);
         })
     }
-    handleBuyProducts=(e,item)=>{
-        localStorage.setItem("categoryId",item.categoryId);
+    handleBuyProducts = (e, item) => {
+        localStorage.setItem("categoryId", item.categoryId);
         // localStorage.setItem("productName",item.productName)
         // this.props.history.push('/buyProducts');
     }
     render() {
         let list2 = this.state.list2.map((item, i) => {
             console.log("item", item)
-           return (
+            return (
                 <div>
 
-                            <div><b>SUB PRODUCT:</b>{item.subProducts}</div> 
-                            {/* <div><b>PRODUCT NAV</b>:{item.productNav}</div>
+                    <div><b>SUB PRODUCT:</b>{item.subProducts}</div>
+                    {/* <div><b>PRODUCT NAV</b>:{item.productNav}</div>
                             <div><b>BROKERAGE</b>:{item.brokerage}%</div> */}
-                     <Button onClick={(e)=>this.handleBuyProducts(e,item)}>Buy</Button> 
+                    <Button onClick={(e) => this.handleBuyProducts(e, item)}>Buy</Button>
                 </div>
             )
 
@@ -67,13 +69,13 @@ class ProductGroup extends Component{
                         {item.categoryName}
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey={item.categoryId}>
-                    <Card.Body>
-                        {list2}
-                    </Card.Body>
+                        <Card.Body>
+                            {list2}
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
             )
-        }, this);    
+        }, this);
         return (
             <div >
                 <h2>List Of Products</h2>
@@ -85,6 +87,6 @@ class ProductGroup extends Component{
             </div>
         )
 
-    }  
+    }
 }
 export default ProductGroup;

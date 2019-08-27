@@ -40,8 +40,11 @@ class ListOfProducts extends Component {
     componentDidMount() {
         const { products } = this.state;
         axios.get('http://10.117.189.181:9093/bank/bank/categories').then((response) => {
-            localStorage.setItem("categoryId",response.data.categoryId);
-            console.log(response)
+           
+            console.log("________________________", response.data);
+
+            localStorage.setItem("categoryName",response.data.categoryName);
+            console.log(response.data.categoryName)
 
             // console.log(response.data);
             this.setState({ products: response.data });
@@ -60,7 +63,11 @@ class ListOfProducts extends Component {
         console.log(item.productGroupId);
         var g = this;
         axios.get('http://10.117.189.181:9093/bank/bank/products/' + item.categoryId).then( (response) => {
-            console.log(response.data);
+        // localStorage.setItem("productId", response.data.productId);   
+        localStorage.setItem("categoryName",  item.categoryName); 
+        console.log(response.data.productId);
+        // alert(response.data.productId);
+       
             g.setState({ subProducts: response.data })
             console.log(g.state.subProducts);
         }).catch(function (err) {
@@ -73,6 +80,11 @@ class ListOfProducts extends Component {
         console.log(item2.productId);
       // var g = this;
         axios.get('http://10.117.189.181:9093/bank/bank/productdetails/' + item2.productId).then( (response) => {
+            // localStorage.setItem("categoryName", response.data.categoryName);  
+            console.log(response.data.productId); 
+            localStorage.setItem("productId",  item2.productId); 
+            localStorage.setItem("productName",  item2.productName); 
+            // alert(response.data)
             console.log(response.data);
             this.setState({ list3: [response.data] })
             console.log(this.state.list3);
@@ -86,8 +98,9 @@ class ListOfProducts extends Component {
     // }
 
     buyHandler =(item) => {
-        localStorage.setItem("productId",item.productId);
-        localStorage.setItem("productName",item.productName)
+        // localStorage.setItem("productId",item.productId);
+        // localStorage.setItem("productName",item.productName)
+       
         this.props.history.push('/buyProduct');
 
     }

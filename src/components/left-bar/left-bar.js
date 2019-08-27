@@ -43,6 +43,15 @@ class LeftBar extends Component {
         event.preventDefault();
         this.props.history.push('/fileUpload');
     }
+    listProducts = (event) => {
+        event.preventDefault();
+        this.props.history.push('/accordion');
+    }
+
+    analysis = (event) => {
+        event.preventDefault();
+        this.props.history.push('/analysis');
+    }
     logout = (event) => {
         event.preventDefault();
         this.props.history.push('/');
@@ -67,6 +76,10 @@ class LeftBar extends Component {
                         Statement</button>
                     <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.fileUpload}>
                         File Upload</button>
+                    <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.listProducts}>
+                        List Of Products</button>
+                    <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.analysis}>
+                        Analysis</button>
                     <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.logout}>
                         Logout</button>
 
