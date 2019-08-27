@@ -1,0 +1,177 @@
+.App {
+  text-align: center;
+}
+
+.body{
+  background-color: #E6E6FA !important;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+.password-field {
+  margin-bottom: 0 !important;
+}
+
+.mob-field {
+  margin-bottom: 20px !important;
+
+}
+
+.btn-block{
+  /* background-color: #ff6200 !important;
+    border: 1px solid #ff6200 !important; */
+
+    color: #ffffff;
+    background-color: #525199;
+    padding: 17px 42px;
+    font-size: 18px;
+    line-height: 1.3333333;
+}
+
+.login-title {
+  font-family: "INGMeWeb-Bold",Arial,sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ff6200;
+
+    margin-top: 20px;
+    float: left;
+    font-size: 3.4rem;
+    line-height: 1.2;
+    color: #444444;
+    /* font-family: "ING Me Regular"; */
+    /* font-size: 14px; */
+    line-height: 1.57142857;
+    color: #444444;
+    /* background-color: #ffffff; */
+    letter-spacing: -0.4px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* font-family: "ING Me Bold"; */
+    font-weight: normal;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    /* font-family: "ING Me Regular"; */
+    /* font-size: 14px; */
+    line-height: 1.57142857;
+    color: #444444;
+    /* background-color: #ffffff; */
+    letter-spacing: -0.4px;
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    padding:0;
+}
+
+.form-control:focus, .form-control:active {
+  border-color: #ff6200 !important;
+  box-shadow: #ff6200 !important;
+}
+
+.home-header {
+  height: 80px;
+  padding-left: 115px;
+  padding-top: 10px;
+  position: relative;
+  background-color: white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: LightGray;
+}
+
+.user-field {
+  margin-bottom: 10px !important;
+}
+
+.navbar {
+  margin-bottom:0 !important;
+}
+
+.home-header-content{
+  background-color: #f4f4f4 !important;
+  margin-bottom: 60px;
+  /* margin-top: 40px; */
+}
+
+.list-title{
+  font-size:20px;
+  text-align: center;
+}
+
+.acc-no{
+  font-size: 16px;
+}
+
+.ben-details{
+  margin: 0 auto;
+  text-align: left;
+  font-size: 35px;
+  margin-bottom: 40px;
+  margin-top: 32px;
+  margin-left: 30px;
+  color: #ff6600;
+  font-family: "ING Me Regular" !important;
+}
+
+.list-payees {
+  text-align:center;
+  margin-bottom: 20px;
+}
+
+.btn-update{
+  margin:0 30px;
+}
+
+.credit-title{
+  text-align: left;
+  margin: -13px 284px 40px;
+}
+
+.expiry-field{
+  margin-left: 38px;
+}
+
+.amount-field{
+  margin-left: 54px;
+    margin-top: 18px;
+    margin-bottom: 30px;
+}
+
+.pay-btn{
+  width: 38%;
+  margin-left: 78px;
+  padding: 3px 4px;
+}
+
+.rccs{
+  margin-left: 374px !important;
+}
+
+.transactionDate{
+  margin-left: 30px !important;
+}

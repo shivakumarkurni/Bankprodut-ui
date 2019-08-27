@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+        "accountNumber": 0,
+        "createdDate": "2019-08-19T10:09:34.847Z",
+        "email": "string",
+        "ifscCode": "string",
+        "mobile": 0,
+        "name": "string",
+        "statusId": 0
+      
+    }  
+  ]
+}
